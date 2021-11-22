@@ -1,0 +1,85 @@
+{
+  "name": "create-ignite-app",
+  "version": "2.0.0",
+  "private": false,
+  "author": "NoA Ignite",
+  "description": "NoA Ignite App Scaffolding",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noaignite/create-ignite-app.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noaignite/create-ignite-app/issues"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "analyze": "ANALYZE=true next build",
+    "storybook": "start-storybook -s ./public -p 3001 --ci",
+    "build-storybook": "build-storybook -s ./public -o .storybook-static",
+    "lint": "eslint . --cache --report-unused-disable-directives",
+    "lint:ci": "eslint . --report-unused-disable-directives",
+    "lint:fix": "eslint . --cache --fix",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint:fix",
+      "git add --force"
+    ],
+    "*.json": [
+      "yarn prettier:fix",
+      "git add --force"
+    ]
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.4.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/lab": "^5.0.0-alpha.49",
+    "@mui/material": "^5.0.2",
+    "@noaignite/oui": "^2.0.0",
+    "clsx": "^1.1.0",
+    "embla-carousel-react": "^5.0.1",
+    "es2015-i18n-tag": "^1.6.1",
+    "next": "^11.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/plugin-transform-react-constant-elements": "^7.10.1",
+    "@next/bundle-analyzer": "^11.1.2",
+    "@storybook/addon-a11y": "^6.3.9",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@storybook/react": "^6.3.9",
+    "@welldone-software/why-did-you-render": "^6.0.3",
+    "babel-plugin-i18n-tag-translate": "^2.0.0",
+    "babel-plugin-optimize-clsx": "^2.6.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-webpack": "^0.13.1",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.0.1",
+    "webpack-merge": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
