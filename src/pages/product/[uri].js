@@ -2,36 +2,43 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { SITE_NAME } from 'utils/constants'
-import { createRenderBlock } from 'utils'
-import * as blockVariants from 'blocks'
+// import { createRenderBlock } from 'utils'
+// import * as blockVariants from 'blocks'
 
-const renderBlock = createRenderBlock(blockVariants)
+// const renderBlock = createRenderBlock(blockVariants)
 
-function Page({ page }) {
+function Page({ product }) {
   return (
     <>
       <Head>
         <title>Page | {SITE_NAME}</title>
       </Head>
 
-      {page.blocks.map(renderBlock)}
+      <h1>{product?.name}</h1>
+      <p>{product.description}</p>
     </>
   )
 }
 
 Page.propTypes = {
-  page: PropTypes.object,
+  product: PropTypes.object,
 }
 
 export const getStaticProps = async (context) => {
-  const uri = context.params.uri.pop()
+  const uri = context.params.uri
 
-  const response = await fetch(`https://cms.nudient.com/wp-json/wp/v2/pages?slug=${uri}`)
+  const response = await fetch('https://nudient.centra.com/api/checkout/2/uri', {
+    method: 'POST',
+    body: JSON.stringify({
+      uri,
+      for: ['product'],
+    }),
+  })
   const results = await response.json()
 
   return {
     props: {
-      page: results[0],
+      product: results.product,
     },
   }
 }

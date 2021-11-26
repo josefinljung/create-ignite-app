@@ -9,8 +9,16 @@ export default {
         props: blocks.Hero,
       },
       {
+        name: 'ScrollingBanner',
+        props: blocks.ScrollingBanner,
+      },
+      {
         name: 'ArticleSlideshow',
         props: blocks.ArticleSlideshow,
+      },
+      {
+        name: 'NewBlock',
+        props: blocks.NewBlock,
       },
     ],
   },

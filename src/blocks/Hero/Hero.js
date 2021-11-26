@@ -56,7 +56,7 @@ const HeroButton = styled(Button, {
 }))
 
 function Hero(props) {
-  const { backgroundMediaProps, ctaLabel, ctaUrl, heading, excerpt, renderIndex } = props
+  const { backgroundMediaProps, ctaLabel, ctaUrl, heading, renderIndex } = props
 
   return (
     <HeroRoot>
@@ -73,11 +73,11 @@ function Hero(props) {
       )}
 
       <HeroMain>
-        <Typography component="h1" variant="h2">
+        <Typography component="h1" variant="h3">
           {heading}
         </Typography>
 
-        {excerpt && <Typography>{excerpt}</Typography>}
+        {/* Lägg Shoppa dam och herr-knappar här */}
 
         {ctaLabel && ctaUrl && (
           <HeroButton component={RouterLink} href={ctaUrl} color="inherit" variant="outlined">

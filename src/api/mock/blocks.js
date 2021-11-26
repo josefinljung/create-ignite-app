@@ -1,13 +1,13 @@
 export default {
   Hero: {
     backgroundMediaProps: {
-      component: 'picture',
+      component: 'video',
       breakpoints: {
-        xs: '//source.unsplash.com/Sl03gvNZuss/1280x720',
-        sm: '//source.unsplash.com/Sl03gvNZuss/1920x1080',
+        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-BW-Desktop-original-LARGE.mp4',
+        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-BW-Desktop-original-LARGE.mp4',
       },
     },
-    heading: 'Lorem ipsum dolor',
+    heading: 'BLACK WEEK',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
     ctaLabel: 'Discover',
     ctaUrl: '/foo',
@@ -23,6 +23,29 @@ export default {
       heading: 'Lorem ipsum dolor',
       excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
       url: '/foo',
+    })),
+  },
+  NewBlock: {
+    heading: 'This is the new block.',
+    items: Array.from(new Array(6), () => ({
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/random',
+      },
+      subheading: 'It is brand new.',
+      heading: 'Built on November the 25th.',
+      excerpt: 'This block is full of interesting information that just keeps going and going and going.', // prettier-ignore
+      url: '/newblock',
+    })),
+  },
+  ScrollingBanner: {
+    heading: 'Up to 30% off ● Black Week',
+    items: Array.from(new Array(6), () => ({
+      mediaProps: {
+        component: 'div',
+        text: 'Up to 30% off ● Black Week',
+      },
+      url: '/scrollingbanner',
     })),
   },
   Media: {
