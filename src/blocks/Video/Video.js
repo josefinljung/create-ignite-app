@@ -5,25 +5,27 @@ import { Button, Typography } from '@mui/material'
 import { Media, MediaReveal } from '@noaignite/oui'
 import { RouterLink } from 'containers'
 
-const HeroRoot = styled('section', {
-  name: 'Hero',
+const VideoRoot = styled('section', {
+  name: 'Video',
   slot: 'Root',
 })(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'end',
+  paddingBottom: '60px',
   minHeight: 550,
   color: theme.palette.getContrastText(theme.palette.text.primary),
-  textAlign: 'center',
+  textAlign: 'left',
+  textTransform: 'uppercase',
   [theme.breakpoints.up('md')]: {
-    minHeight: 650,
+    minHeight: 760,
   },
 }))
 
-const HeroMediaReveal = styled(MediaReveal, {
-  name: 'Hero',
+const VideoMediaReveal = styled(MediaReveal, {
+  name: 'Video',
   slot: 'MediaReveal',
 })(({ theme }) => ({
   ...theme.mixins.absolute(0),
@@ -33,35 +35,55 @@ const HeroMediaReveal = styled(MediaReveal, {
   },
 }))
 
-const HeroMain = styled('div', {
-  name: 'Hero',
+const VideoMain = styled('div', {
+  name: 'Video',
   slot: 'Main',
 })(({ theme }) => ({
   ...theme.mixins.verticalRhythm(2),
   ...theme.mixins.contain('sm'),
   paddingLeft: 'var(--cia-container-spacing)',
   paddingRight: 'var(--cia-container-spacing)',
+  marginLeft: '0px',
+  fontWeight: '800',
+  h5: {
+    letterSpacing: '2px',
+  },
+  h1: {
+    fontWeight: '800',
+  },
+  a: {
+    fontWeight: '800',
+
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
 }))
 
-const HeroButton = styled(Button, {
-  name: 'Hero',
+const VideoButton = styled(Button, {
+  name: 'Video',
   slot: 'Button',
 })(({ theme }) => ({
-  // Makes entire Hero block clickable.
-  position: 'static',
+  // Makes entire Video block clickable.
+  textDecoration: 'underline',
+  fontSize: '12px',
+  fontWeight: 'bold',
+  padding: '0px',
+  marginRight: '10px',
   '&:before': {
     ...theme.mixins.absolute(0),
     content: '""',
   },
 }))
 
-function Hero(props) {
-  const { backgroundMediaProps, ctaLabel, ctaUrl, heading, excerpt, renderIndex } = props
+function Video(props) {
+  const { backgroundMediaProps, ctaLabel1, ctaLabel2, ctaUrl, heading, subheading, renderIndex } =
+    props
 
   return (
-    <HeroRoot>
+    <VideoRoot>
       {backgroundMediaProps && (
-        <HeroMediaReveal>
+        <VideoMediaReveal>
           <Media
             {...(backgroundMediaProps?.component === 'video'
               ? { autoPlay: true, muted: true, loop: true, playsInline: true }
@@ -69,33 +91,41 @@ function Hero(props) {
             {...backgroundMediaProps}
             priority={renderIndex === 0}
           />
-        </HeroMediaReveal>
+        </VideoMediaReveal>
       )}
 
-      <HeroMain>
+      <VideoMain>
+        <Typography component="h5" variant="h6">
+          {subheading}
+        </Typography>
         <Typography component="h1" variant="h2">
           {heading}
         </Typography>
 
-        {excerpt && <Typography>{excerpt}</Typography>}
-
-        {ctaLabel && ctaUrl && (
-          <HeroButton component={RouterLink} href={ctaUrl} color="inherit" variant="outlined">
-            {ctaLabel}
-          </HeroButton>
+        {ctaLabel1 && ctaUrl && (
+          <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
+            {ctaLabel1}
+          </VideoButton>
         )}
-      </HeroMain>
-    </HeroRoot>
+        {ctaLabel2 && ctaUrl && (
+          <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
+            {ctaLabel2}
+          </VideoButton>
+        )}
+      </VideoMain>
+    </VideoRoot>
   )
 }
 
-Hero.propTypes = {
+Video.propTypes = {
   backgroundMediaProps: PropTypes.object,
-  ctaLabel: PropTypes.string,
+  ctaLabel1: PropTypes.string,
+  ctaLabel2: PropTypes.string,
   ctaUrl: PropTypes.string,
   excerpt: PropTypes.string,
   heading: PropTypes.string,
+  subheading: PropTypes.string,
   renderIndex: PropTypes.number.isRequired,
 }
 
-export default Hero
+export default Video

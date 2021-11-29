@@ -1,5 +1,18 @@
 export default {
-  Hero: {
+  // Hero: {
+  //   backgroundMediaProps: {
+  //     component: 'picture',
+  //     breakpoints: {
+  //       xs: '//source.unsplash.com/Sl03gvNZuss/1280x720',
+  //       sm: '//source.unsplash.com/Sl03gvNZuss/1920x1080',
+  //     },
+  //   },
+  //   heading: 'Lorem ipsum dolor',
+  //   excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
+  //   ctaLabel: 'Discover',
+  //   ctaUrl: '/foo',
+  // },
+  Video: {
     backgroundMediaProps: {
       component: 'video',
       breakpoints: {
@@ -7,10 +20,41 @@ export default {
         sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-BW-Desktop-original-LARGE.mp4',
       },
     },
-    heading: 'BLACK WEEK',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
-    ctaLabel: 'Discover',
+    heading: 'Black week',
+    subheading: 'Up to 30% off',
+    // excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
+    ctaLabel1: 'Shoppa dam',
+    ctaLabel2: 'Shoppa herr',
     ctaUrl: '/foo',
+  },
+  NewBlock: {
+    item1: {
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/random',
+      },
+      subheading: 'Upptäck',
+      heading: 'Bästsäljare',
+      url: '/foo',
+    },
+    item2: {
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/random',
+      },
+      subheading: '',
+      heading: 'Nyheter',
+      url: '/foo',
+    },
+    item3: {
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/random',
+      },
+      subheading: 'Köp',
+      heading: 'Ridkläder',
+      url: '/foo',
+    },
   },
   ArticleSlideshow: {
     heading: 'Generic Heading',
@@ -25,28 +69,9 @@ export default {
       url: '/foo',
     })),
   },
-  NewBlock: {
-    heading: 'This is the new block.',
-    items: Array.from(new Array(6), () => ({
-      mediaProps: {
-        component: 'img',
-        src: '//source.unsplash.com/random',
-      },
-      subheading: 'It is brand new.',
-      heading: 'Built on November the 25th.',
-      excerpt: 'This block is full of interesting information that just keeps going and going and going.', // prettier-ignore
-      url: '/newblock',
-    })),
-  },
   ScrollingBanner: {
-    heading: 'Up to 30% off ● Black Week',
-    items: Array.from(new Array(6), () => ({
-      mediaProps: {
-        component: 'div',
-        text: 'Up to 30% off ● Black Week',
-      },
-      url: '/scrollingbanner',
-    })),
+    heading:
+      '• BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF ',
   },
   Media: {
     mediaProps: {

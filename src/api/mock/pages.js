@@ -4,21 +4,25 @@ export default {
   Home: {
     headerMode: 'auto',
     children: [
+      // {
+      //   name: 'Hero',
+      //   props: blocks.Hero,
+      // },
       {
-        name: 'Hero',
-        props: blocks.Hero,
+        name: 'Video',
+        props: blocks.Video,
       },
       {
         name: 'ScrollingBanner',
         props: blocks.ScrollingBanner,
       },
       {
-        name: 'ArticleSlideshow',
-        props: blocks.ArticleSlideshow,
-      },
-      {
         name: 'NewBlock',
         props: blocks.NewBlock,
+      },
+      {
+        name: 'ArticleSlideshow',
+        props: blocks.ArticleSlideshow,
       },
     ],
   },

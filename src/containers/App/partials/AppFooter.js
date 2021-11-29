@@ -17,7 +17,7 @@ const AppFooterSalesBanner = styled('div', {
   name: 'AppFooter',
   slot: 'SalesBanner',
 })(({ theme }) => ({
-  position: 'sticky',
+  // position: 'sticky',
   bottom: 0,
   padding: theme.spacing(0.5, 2),
   backgroundColor: theme.palette.text.secondary,

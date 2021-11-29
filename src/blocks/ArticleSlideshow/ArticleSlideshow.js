@@ -102,13 +102,13 @@ function ArticleSlideshow(props) {
                   )}
 
                   <ArticleSlideshowArticleContent>
-                    {item.subheading && (
-                      <Typography variant="overline">{item.subheading}</Typography>
-                    )}
-
                     <Typography component="h2" variant="h4" paragraph>
                       {item.heading}
                     </Typography>
+
+                    {item.subheading && (
+                      <Typography variant="overline">{item.subheading}</Typography>
+                    )}
 
                     <Typography variant="body1" paragraph>
                       {item.excerpt}

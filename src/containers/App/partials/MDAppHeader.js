@@ -9,6 +9,7 @@ import { useCheckoutSelection, useI18n } from 'api'
 import { useDimensions } from 'utils'
 import {
   Brand as BrandIcon,
+  // BrandIcon as NewBrandIcon,
   Cart as CartIcon,
   Close as CloseIcon,
   Menu as MenuIcon,
@@ -19,28 +20,28 @@ import { useApp } from '../AppContext'
 
 const BREAKPOINT_KEY = 'md'
 
-export const classes = generateUtilityClasses('CiaAppHeader', [
+export const classes = generateUtilityClasses('CiaMDAppHeader', [
   'toolbarPushMobile',
   'toolbarPushDesktop',
   'hiddenOnMobile',
   'hiddenOnDesktop',
 ])
 
-const AppHeaderRoot = styled(AppBar, {
-  name: 'AppHeader',
+const MDAppHeaderRoot = styled(AppBar, {
+  name: 'MDAppHeader',
   slot: 'Root',
-})(({ theme, ownerState }) => ({
-  ...(ownerState.appBarColor === 'transparent' && {
-    '&:not(:hover):not(:focus-within)': {
-      backgroundColor: 'transparent',
-      color: 'inherit',
-    },
-  }),
-  ...(ownerState.disableTransparency !== undefined && {
-    transition: theme.transitions.create(['background-color'], {
-      duration: theme.transitions.duration.shortest, // Match value of `IconButton`
-    }),
-  }),
+})(({ theme }) => ({
+  // ...(ownerState.appBarColor === 'transparent' && {
+  //   '&:not(:hover):not(:focus-within)': {
+  //     backgroundColor: 'transparent',
+  //     color: 'inherit',
+  //   },
+  // }),
+  // ...(ownerState.disableTransparency !== undefined && {
+  //   transition: theme.transitions.create(['background-color'], {
+  //     duration: theme.transitions.duration.shortest, // Match value of `IconButton`
+  //   }),
+  // }),
   // Util classes
   [`& .${classes.toolbarPushMobile}`]: {
     [theme.breakpoints.down(BREAKPOINT_KEY)]: { marginLeft: 'auto' },
@@ -56,12 +57,48 @@ const AppHeaderRoot = styled(AppBar, {
   },
 }))
 
-const AppHeaderBrandLink = styled(RouterLink, {
-  name: 'AppHeader',
+const MDAppHeaderTop = styled('div', {
+  name: 'MDAppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  borderBottom: '1px solid black',
+  fontSize: '12px',
+  letterSpacing: '1px',
+  marginLeft: 'var(--cia-toolbar-spacing)',
+  marginRight: 'var(--cia-toolbar-spacing)',
+})
+
+const MDAppHeaderTopContentStart = styled('span', {
+  name: 'MDAppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  textAlign: 'center',
+  width: '100%',
+  margin: '8px 0px 8px 0px',
+})
+
+const MDAppHeaderTopContentEnd = styled('span', {
+  name: 'MDAppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  borderLeft: '1px solid black',
+  textAlign: 'center',
+  width: '100%',
+  margin: '8px 0px 8px 0px',
+})
+
+const MDAppHeaderBrandLink = styled(RouterLink, {
+  name: 'MDAppHeader',
   slot: 'BrandLink',
 })({
   position: 'absolute',
   left: '50%',
+  padding: '10px',
   transform: 'translateX(-50%)',
   color: 'inherit',
   '& > svg': {
@@ -70,7 +107,7 @@ const AppHeaderBrandLink = styled(RouterLink, {
   },
 })
 
-const AppHeader = React.memo(function AppHeader(props) {
+const MDAppHeader = React.memo(function MDAppHeader(props) {
   const {
     headerMode = 'opaque',
     isCartMenuOpen,
@@ -87,40 +124,40 @@ const AppHeader = React.memo(function AppHeader(props) {
   const { t } = useI18n()
   const [rootRef, dimensions] = useDimensions()
 
-  const [disableTransparency, setDisableTransparency] = React.useState(undefined)
-  const syncDisableTransparency = React.useCallback(() => {
-    setDisableTransparency(window.pageYOffset > 100)
-  }, [])
+  // const [disableTransparency, setDisableTransparency] = React.useState(undefined)
+  // const syncDisableTransparency = React.useCallback(() => {
+  //   setDisableTransparency(window.pageYOffset > 100)
+  // }, [])
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      syncDisableTransparency()
-    }
+  // React.useEffect(() => {
+  //   const handleScroll = () => {
+  //     syncDisableTransparency()
+  //   }
 
-    if (headerMode === 'auto') {
-      window.addEventListener('scroll', handleScroll, { passive: true })
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }
+  //   if (headerMode === 'auto') {
+  //     window.addEventListener('scroll', handleScroll, { passive: true })
+  //     return () => {
+  //       window.removeEventListener('scroll', handleScroll)
+  //     }
+  //   }
 
-    // Define `disableTransparency` value on `headerMode` prop change, thereby
-    // enabling transitions. Doing so negates flashing of header on page load
-    // for pages that don't use `headerMode="opaque"`.
-    return syncDisableTransparency
-  }, [headerMode, syncDisableTransparency])
+  //   // Define `disableTransparency` value on `headerMode` prop change, thereby
+  //   // enabling transitions. Doing so negates flashing of header on page load
+  //   // for pages that don't use `headerMode="opaque"`.
+  //   return syncDisableTransparency
+  // }, [headerMode, syncDisableTransparency])
 
-  let appBarColor = 'default'
-  if (
-    (headerMode === 'transparent' || (headerMode === 'auto' && !disableTransparency)) &&
-    !isSomeMenuOpen
-  ) {
-    appBarColor = 'transparent'
-  }
+  // let appBarColor = 'default'
+  // if (
+  //   (headerMode === 'transparent' || (headerMode === 'auto' && !disableTransparency)) &&
+  //   !isSomeMenuOpen
+  // ) {
+  //   appBarColor = 'transparent'
+  // }
 
   return (
-    <AppHeaderRoot
-      ownerState={{ appBarColor, disableTransparency }}
+    <MDAppHeaderRoot
+      // ownerState={{ appBarColor, disableTransparency }}
       position={headerMode === 'opaque' ? 'sticky' : 'fixed'}
       ref={rootRef}
       {...other}
@@ -138,6 +175,10 @@ const AppHeader = React.memo(function AppHeader(props) {
         }}
       />
 
+      <MDAppHeaderTop>
+        <MDAppHeaderTopContentStart>Black Week -Up to 30% off</MDAppHeaderTopContentStart>
+        <MDAppHeaderTopContentEnd>3-6 dagars leverans</MDAppHeaderTopContentEnd>
+      </MDAppHeaderTop>
       <Toolbar>
         <IconButton
           onClick={onNavMenuToggle}
@@ -153,9 +194,9 @@ const AppHeader = React.memo(function AppHeader(props) {
         <div className={classes.toolbarPushMobile} />
         <div className={classes.toolbarPushDesktop} />
 
-        <AppHeaderBrandLink href="/" aria-label={t(__translationGroup)`Go to the homepage`}>
-          <BrandIcon />
-        </AppHeaderBrandLink>
+        <MDAppHeaderBrandLink href="/" aria-label={t(__translationGroup)`Go to the homepage`}>
+          <BrandIcon style={{ height: '60px' }} />
+        </MDAppHeaderBrandLink>
 
         <IconButton
           onClick={onSearchMenuToggle}
@@ -184,11 +225,11 @@ const AppHeader = React.memo(function AppHeader(props) {
           )}
         </IconButton>
       </Toolbar>
-    </AppHeaderRoot>
+    </MDAppHeaderRoot>
   )
 })
 
-AppHeader.propTypes = {
+MDAppHeader.propTypes = {
   headerMode: PropTypes.oneOf(['opaque', 'transparent', 'auto']),
   isCartMenuOpen: PropTypes.bool,
   isNavMenuOpen: PropTypes.bool,
@@ -200,7 +241,7 @@ AppHeader.propTypes = {
   productsCount: PropTypes.number,
 }
 
-function AppHeaderContainer(props) {
+function MDAppHeaderContainer(props) {
   const {
     isCartMenuOpen,
     isNavMenuOpen,
@@ -213,7 +254,7 @@ function AppHeaderContainer(props) {
   const { items } = useCheckoutSelection()
 
   return (
-    <AppHeader
+    <MDAppHeader
       isCartMenuOpen={isCartMenuOpen}
       isNavMenuOpen={isNavMenuOpen}
       isSearchMenuOpen={isSearchMenuOpen}
@@ -227,4 +268,4 @@ function AppHeaderContainer(props) {
   )
 }
 
-export default AppHeaderContainer
+export default MDAppHeaderContainer

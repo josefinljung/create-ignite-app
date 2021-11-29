@@ -8,7 +8,7 @@ const ScrollingBannerRoot = styled('section', {
   slot: 'Root',
 })({
   position: 'relative',
-  margin: 'var(--cia-section-spacing) 0',
+  fontSize: '12px',
   backgroundColor: 'black',
   color: 'white',
   textAlign: 'center',
@@ -20,9 +20,12 @@ const ScrollingBannerMain = styled('div', {
   name: 'ScrollingBanner',
   slot: 'Main',
 })({
-  paddingLeft: 'var(--cia-container-spacing)',
-  paddingRight: 'var(--cia-container-spacing)',
+  // paddingLeft: 'var(--cia-container-spacing)',
+  // paddingRight: 'var(--cia-container-spacing)',
   overflow: 'hidden',
+  lineHeight: '1',
+  letterSpacing: '3px',
+  fontWeight: '800',
 })
 
 function ScrollingBanner(props) {
@@ -31,11 +34,19 @@ function ScrollingBanner(props) {
   return (
     <ScrollingBannerRoot>
       <ScrollingBannerMain>
-        <section>
-          <Typography component="h1" variant="h4">
-            {heading}
-          </Typography>
-        </section>
+        <Typography variant="h6">
+          {/* <marquee
+          direction="left"
+          iteration-count="infinite"
+          // animation-play-state="running"
+          // play="running"
+          // duration="378.086s"
+          // delay="0s"
+        >
+          {heading}
+        </marquee> */}
+          {heading}
+        </Typography>
       </ScrollingBannerMain>
     </ScrollingBannerRoot>
   )
