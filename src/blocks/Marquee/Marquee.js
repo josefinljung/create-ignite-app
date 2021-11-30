@@ -31,7 +31,7 @@ const MarqueeMain = styled('div', {
 })
 
 function Marquee(props) {
-  const { heading, repeatHeading = 2, speed = 20 } = props
+  const { heading, repeatHeading = 10, speed = 20 } = props
 
   return (
     <MarqueeRoot>

@@ -104,12 +104,12 @@ function Video(props) {
 
         {womanLabel && ctaUrl && (
           <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            Shoppa {womanLabel}
+            {womanLabel}
           </VideoButton>
         )}
         {manLabel && ctaUrl && (
           <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            Shoppa {manLabel}
+            {manLabel}
           </VideoButton>
         )}
       </VideoMain>

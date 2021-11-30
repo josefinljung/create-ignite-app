@@ -1,99 +1,17 @@
 export default {
-  // Hero: {
-  //   backgroundMediaProps: {
-  //     component: 'picture',
-  //     breakpoints: {
-  //       xs: '//source.unsplash.com/Sl03gvNZuss/1280x720',
-  //       sm: '//source.unsplash.com/Sl03gvNZuss/1920x1080',
-  //     },
-  //   },
-  //   heading: 'Lorem ipsum dolor',
-  //   excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
-  //   ctaLabel: 'Discover',
-  //   ctaUrl: '/foo',
-  // },
-  Video: {
-    backgroundMediaProps: {
-      component: 'video',
-      breakpoints: {
-        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
-        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
-      },
-    },
-    heading: 'INNOVATIVE EQUESTRIAN WEAR',
-    subheading: '',
-    // excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
-    womanLabel: 'dam',
-    manLabel: 'herr',
-    ctaUrl: '/foo',
-  },
-  PromoCard: {
+  ArticleCard: {
     heading: 'Stories & Insights',
-    item1: {
+    items: Array.from(new Array(7), () => ({
       mediaProps: {
         component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/1Matt-Harnacke-MD-1-scaled-1-750x1125.jpg',
+        src: '//source.unsplash.com/random',
       },
-      subheading: '',
-      heading: 'Läs mer',
+      subheading: 'Vivamus',
+      heading: 'Lorem ipsum dolor',
+      text: 'Read more',
       url: '/foo',
-    },
-    item2: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Our-new-compression-breeches-scaled-3-750x990.jpg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
-    item3: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Johanna_Lassnack_12-750x1125.jpeg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
-    item4: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Maya-Delorez-x-Carl-Hedin-long-pic.jpg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
-    item5: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Madelene-Tornblom-Design-750x1125.jpeg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
-    item6: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Madelene-Tornblom-picture-750x1125.jpeg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
-    item7: {
-      mediaProps: {
-        component: 'img',
-        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Camille-Compression-Equestrians-750x1125.jpg',
-      },
-      subheading: '',
-      heading: 'Läs mer',
-      url: '/foo',
-    },
+    })),
   },
-
   ArticleSlideshow: {
     heading: 'Generic Heading',
     items: Array.from(new Array(6), () => ({
@@ -161,5 +79,18 @@ export default {
       <h5>Header Level 5</h5>
       <h6>Header Level 6</h6>
     `,
+  },
+  Video: {
+    backgroundMediaProps: {
+      component: 'video',
+      breakpoints: {
+        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
+        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
+      },
+    },
+    heading: 'INNOVATIVE EQUESTRIAN WEAR',
+    ctaUrl: '/foo',
+    womanLabel: "Shop woman's",
+    manLabel: "Shop men's",
   },
 }

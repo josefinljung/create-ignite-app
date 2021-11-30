@@ -4,10 +4,6 @@ export default {
   Home: {
     headerMode: 'auto',
     children: [
-      // {
-      //   name: 'Hero',
-      //   props: blocks.Hero,
-      // },
       {
         name: 'Video',
         props: blocks.Video,
@@ -17,13 +13,13 @@ export default {
         props: blocks.Marquee,
       },
       {
-        name: 'PromoCard',
-        props: blocks.PromoCard,
+        name: 'ArticleCard',
+        props: blocks.ArticleCard,
       },
-      {
-        name: 'ArticleSlideshow',
-        props: blocks.ArticleSlideshow,
-      },
+      // {
+      //   name: 'ArticleSlideshow',
+      //   props: blocks.ArticleSlideshow,
+      // },
     ],
   },
   Content: {

@@ -78,7 +78,8 @@ const MDAppHeaderTopContentStart = styled('span', {
   position: 'relative',
   textAlign: 'center',
   width: '100%',
-  margin: '8px 0px 8px 0px',
+  margin: '9px 0px 9px 0px',
+  padding: '0px 16px 0px 16px',
 })
 
 const MDAppHeaderTopContentEnd = styled('span', {
@@ -89,7 +90,8 @@ const MDAppHeaderTopContentEnd = styled('span', {
   borderLeft: '1px solid black',
   textAlign: 'center',
   width: '100%',
-  margin: '8px 0px 8px 0px',
+  margin: '9px 0px 9px 0px',
+  padding: '0px 16px 0px 16px',
 })
 
 const MDAppHeaderBrandLink = styled(RouterLink, {
@@ -98,6 +100,7 @@ const MDAppHeaderBrandLink = styled(RouterLink, {
 })({
   position: 'absolute',
   left: '50%',
+  top: '-10%',
   padding: '10px',
   transform: 'translateX(-50%)',
   color: 'inherit',
@@ -176,8 +179,8 @@ const MDAppHeader = React.memo(function MDAppHeader(props) {
       />
 
       <MDAppHeaderTop>
-        <MDAppHeaderTopContentStart>Black Week -Up to 30% off</MDAppHeaderTopContentStart>
-        <MDAppHeaderTopContentEnd>3-6 dagars leverans</MDAppHeaderTopContentEnd>
+        <MDAppHeaderTopContentStart>Welcome to Maya Delorez</MDAppHeaderTopContentStart>
+        <MDAppHeaderTopContentEnd>Fast deliveries</MDAppHeaderTopContentEnd>
       </MDAppHeaderTop>
       <Toolbar>
         <IconButton
@@ -195,7 +198,7 @@ const MDAppHeader = React.memo(function MDAppHeader(props) {
         <div className={classes.toolbarPushDesktop} />
 
         <MDAppHeaderBrandLink href="/" aria-label={t(__translationGroup)`Go to the homepage`}>
-          <BrandIcon style={{ height: '60px' }} />
+          <BrandIcon style={{ height: '65px' }} />
         </MDAppHeaderBrandLink>
 
         <IconButton
