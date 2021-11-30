@@ -4,7 +4,7 @@ export default {
     items: Array.from(new Array(7), () => ({
       mediaProps: {
         component: 'img',
-        src: '//source.unsplash.com/random',
+        src: '//source.unsplash.com/200x600?horse',
       },
       subheading: 'Vivamus',
       heading: 'Lorem ipsum dolor',

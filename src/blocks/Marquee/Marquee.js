@@ -37,17 +37,6 @@ function Marquee(props) {
     <MarqueeRoot>
       <MarqueeMain>
         <Typography variant="h6">
-          {/* <marquee
-          direction="left"
-          iteration-count="infinite"
-          // animation-play-state="running"
-          // play="running"
-          // duration="378.086s"
-          // delay="0s"
-        >
-          {heading}
-        </marquee> */}
-          {/* {heading} */}
           <ReactFastMarquee gradient={false} speed={speed}>
             {Array.from(new Array(repeatHeading), () => heading)}
           </ReactFastMarquee>
