@@ -77,7 +77,7 @@ const VideoButton = styled(Button, {
 }))
 
 function Video(props) {
-  const { backgroundMediaProps, ctaLabel1, ctaLabel2, ctaUrl, heading, subheading, renderIndex } =
+  const { backgroundMediaProps, womanLabel, manLabel, ctaUrl, heading, subheading, renderIndex } =
     props
 
   return (
@@ -102,14 +102,14 @@ function Video(props) {
           {heading}
         </Typography>
 
-        {ctaLabel1 && ctaUrl && (
+        {womanLabel && ctaUrl && (
           <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            {ctaLabel1}
+            Shoppa {womanLabel}
           </VideoButton>
         )}
-        {ctaLabel2 && ctaUrl && (
+        {manLabel && ctaUrl && (
           <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            {ctaLabel2}
+            Shoppa {manLabel}
           </VideoButton>
         )}
       </VideoMain>
@@ -119,8 +119,8 @@ function Video(props) {
 
 Video.propTypes = {
   backgroundMediaProps: PropTypes.object,
-  ctaLabel1: PropTypes.string,
-  ctaLabel2: PropTypes.string,
+  womanLabel: PropTypes.string,
+  manLabel: PropTypes.string,
   ctaUrl: PropTypes.string,
   excerpt: PropTypes.string,
   heading: PropTypes.string,

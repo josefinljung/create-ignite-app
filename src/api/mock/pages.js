@@ -13,12 +13,12 @@ export default {
         props: blocks.Video,
       },
       {
-        name: 'ScrollingBanner',
-        props: blocks.ScrollingBanner,
+        name: 'Marquee',
+        props: blocks.Marquee,
       },
       {
-        name: 'NewBlock',
-        props: blocks.NewBlock,
+        name: 'PromoCard',
+        props: blocks.PromoCard,
       },
       {
         name: 'ArticleSlideshow',

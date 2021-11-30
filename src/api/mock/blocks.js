@@ -16,46 +16,84 @@ export default {
     backgroundMediaProps: {
       component: 'video',
       breakpoints: {
-        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-BW-Desktop-original-LARGE.mp4',
-        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-BW-Desktop-original-LARGE.mp4',
+        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
+        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
       },
     },
-    heading: 'Black week',
-    subheading: 'Up to 30% off',
+    heading: 'INNOVATIVE EQUESTRIAN WEAR',
+    subheading: '',
     // excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
-    ctaLabel1: 'Shoppa dam',
-    ctaLabel2: 'Shoppa herr',
+    womanLabel: 'dam',
+    manLabel: 'herr',
     ctaUrl: '/foo',
   },
-  NewBlock: {
+  PromoCard: {
+    heading: 'Stories & Insights',
     item1: {
       mediaProps: {
         component: 'img',
-        src: '//source.unsplash.com/random',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/1Matt-Harnacke-MD-1-scaled-1-750x1125.jpg',
       },
-      subheading: 'Upptäck',
-      heading: 'Bästsäljare',
+      subheading: '',
+      heading: 'Läs mer',
       url: '/foo',
     },
     item2: {
       mediaProps: {
         component: 'img',
-        src: '//source.unsplash.com/random',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Our-new-compression-breeches-scaled-3-750x990.jpg',
       },
       subheading: '',
-      heading: 'Nyheter',
+      heading: 'Läs mer',
       url: '/foo',
     },
     item3: {
       mediaProps: {
         component: 'img',
-        src: '//source.unsplash.com/random',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Johanna_Lassnack_12-750x1125.jpeg',
       },
-      subheading: 'Köp',
-      heading: 'Ridkläder',
+      subheading: '',
+      heading: 'Läs mer',
+      url: '/foo',
+    },
+    item4: {
+      mediaProps: {
+        component: 'img',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Maya-Delorez-x-Carl-Hedin-long-pic.jpg',
+      },
+      subheading: '',
+      heading: 'Läs mer',
+      url: '/foo',
+    },
+    item5: {
+      mediaProps: {
+        component: 'img',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Madelene-Tornblom-Design-750x1125.jpeg',
+      },
+      subheading: '',
+      heading: 'Läs mer',
+      url: '/foo',
+    },
+    item6: {
+      mediaProps: {
+        component: 'img',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Madelene-Tornblom-picture-750x1125.jpeg',
+      },
+      subheading: '',
+      heading: 'Läs mer',
+      url: '/foo',
+    },
+    item7: {
+      mediaProps: {
+        component: 'img',
+        src: '//cms.mayadelorez.com/wp-content/uploads/2021/10/Camille-Compression-Equestrians-750x1125.jpg',
+      },
+      subheading: '',
+      heading: 'Läs mer',
       url: '/foo',
     },
   },
+
   ArticleSlideshow: {
     heading: 'Generic Heading',
     items: Array.from(new Array(6), () => ({
@@ -69,9 +107,8 @@ export default {
       url: '/foo',
     })),
   },
-  ScrollingBanner: {
-    heading:
-      '• BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF • BLACK WEEK • UP TO 30% OFF ',
+  Marquee: {
+    heading: ' EQUESTRIAN FASHION INNOVATION BRAND FROM SWEDEN • ',
   },
   Media: {
     mediaProps: {

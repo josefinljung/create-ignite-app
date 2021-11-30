@@ -219,7 +219,7 @@ const MDAppHeader = React.memo(function MDAppHeader(props) {
           {isCartMenuOpen ? (
             <CloseIcon />
           ) : (
-            <Badge badgeContent={productsCount} color="primary" overlap="circular">
+            <Badge badgeContent={productsCount} color="text" overlap="circular">
               <CartIcon />
             </Badge>
           )}
