@@ -16,6 +16,10 @@ export default {
         name: 'ArticleCard',
         props: blocks.ArticleCard,
       },
+      {
+        name: 'PromoCardSlideshow',
+        props: blocks.PromoCardSlideshow,
+      },
       // {
       //   name: 'ArticleSlideshow',
       //   props: blocks.ArticleSlideshow,

@@ -12,33 +12,6 @@ export default {
       url: '/foo',
     })),
   },
-  ArticleSlideshow: {
-    heading: 'Generic Heading',
-    items: Array.from(new Array(6), () => ({
-      mediaProps: {
-        component: 'img',
-        src: '//source.unsplash.com/m1m2EZOZVwA',
-      },
-      subheading: 'Vivamus',
-      heading: 'Lorem ipsum dolor',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
-      url: '/foo',
-    })),
-  },
-  Marquee: {
-    heading: ' EQUESTRIAN FASHION INNOVATION BRAND FROM SWEDEN • ',
-  },
-  Media: {
-    mediaProps: {
-      component: 'picture',
-      breakpoints: {
-        xs: '//source.unsplash.com/DmD8HVOjy4c/1280x720',
-        sm: '//source.unsplash.com/DmD8HVOjy4c/1920x1080',
-      },
-      width: 1280,
-      height: 720,
-    },
-  },
   Content: {
     content: `
       <h1>HTML Ipsum Presents</h1>
@@ -80,6 +53,44 @@ export default {
       <h6>Header Level 6</h6>
     `,
   },
+  ProductSlideshow: {
+    heading: 'Generic Heading',
+    items: Array.from(new Array(6), () => ({
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/m1m2EZOZVwA',
+      },
+      subheading: 'Vivamus',
+      heading: 'Lorem ipsum dolor',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie varius viverra. Quisque urna tortor, bibendum ac quam a, bibendum fringilla nulla.', // prettier-ignore
+      url: '/foo',
+    })),
+  },
+  Marquee: {
+    heading: ' EQUESTRIAN FASHION INNOVATION BRAND FROM SWEDEN • ',
+  },
+  Media: {
+    mediaProps: {
+      component: 'picture',
+      breakpoints: {
+        xs: '//source.unsplash.com/DmD8HVOjy4c/1280x720',
+        sm: '//source.unsplash.com/DmD8HVOjy4c/1920x1080',
+      },
+      width: 1280,
+      height: 720,
+    },
+  },
+  PromoCardSlideshow: {
+    items: Array.from(new Array(3), () => ({
+      mediaProps: {
+        component: 'img',
+        src: '//source.unsplash.com/random',
+      },
+      subheading: 'Discover',
+      heading: 'Bestsellers',
+      url: '/foo',
+    })),
+  },
   Video: {
     backgroundMediaProps: {
       component: 'video',
@@ -88,9 +99,10 @@ export default {
         sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
       },
     },
-    heading: 'INNOVATIVE EQUESTRIAN WEAR',
-    ctaUrl: '/foo',
-    womanLabel: "Shop woman's",
-    manLabel: "Shop men's",
+    heading: 'Innovative equestrian wear',
+    primaryCtaLabel: "Shop woman's",
+    primaryCtaUrl: '/foo1',
+    secondaryCtaLabel: "Shop man's",
+    secondaryCtaUrl: '/foo2',
   },
 }
