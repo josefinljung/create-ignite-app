@@ -100,9 +100,9 @@ export default {
       },
     },
     heading: 'Innovative equestrian wear',
-    primaryCtaLabel: "Shop woman's",
+    primaryCtaLabel: "Shop women's",
     primaryCtaUrl: '/foo1',
-    secondaryCtaLabel: "Shop man's",
+    secondaryCtaLabel: "Shop men's",
     secondaryCtaUrl: '/foo2',
   },
 }

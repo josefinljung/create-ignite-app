@@ -41,8 +41,8 @@ const VideoMain = styled('div', {
 })(({ theme }) => ({
   ...theme.mixins.verticalRhythm(2),
   ...theme.mixins.contain('sm'),
-  paddingLeft: 'var(--cia-container-spacing)',
-  paddingRight: 'var(--cia-container-spacing)',
+  maxWidth: '760px',
+  padding: 'var(--cia-section-spacing) var(--cia-container-spacing)',
   marginLeft: '0px',
   fontWeight: '800',
   h5: {
@@ -77,8 +77,16 @@ const VideoButton = styled(Button, {
 }))
 
 function Video(props) {
-  const { backgroundMediaProps, womanLabel, manLabel, ctaUrl, heading, subheading, renderIndex } =
-    props
+  const {
+    backgroundMediaProps,
+    primaryCtaLabel,
+    primaryCtaUrl,
+    secondaryCtaLabel,
+    secondaryCtaUrl,
+    heading,
+    subheading,
+    renderIndex,
+  } = props
 
   return (
     <VideoRoot>
@@ -102,14 +110,14 @@ function Video(props) {
           {heading}
         </Typography>
 
-        {womanLabel && ctaUrl && (
-          <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            {womanLabel}
+        {primaryCtaLabel && primaryCtaUrl && (
+          <VideoButton component={RouterLink} href={primaryCtaUrl} color="inherit" variant="text">
+            {primaryCtaLabel}
           </VideoButton>
         )}
-        {manLabel && ctaUrl && (
-          <VideoButton component={RouterLink} href={ctaUrl} color="inherit" variant="text">
-            {manLabel}
+        {secondaryCtaLabel && secondaryCtaUrl && (
+          <VideoButton component={RouterLink} href={secondaryCtaUrl} color="inherit" variant="text">
+            {secondaryCtaLabel}
           </VideoButton>
         )}
       </VideoMain>
@@ -119,9 +127,10 @@ function Video(props) {
 
 Video.propTypes = {
   backgroundMediaProps: PropTypes.object,
-  womanLabel: PropTypes.string,
-  manLabel: PropTypes.string,
-  ctaUrl: PropTypes.string,
+  primaryCtaLabel: PropTypes.string,
+  primaryCtaUrl: PropTypes.string,
+  secondaryCtaLabel: PropTypes.string,
+  secondaryCtaUrl: PropTypes.string,
   excerpt: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,

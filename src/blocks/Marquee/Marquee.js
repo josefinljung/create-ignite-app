@@ -13,7 +13,7 @@ const MarqueeRoot = styled('section', {
   backgroundColor: 'black',
   color: 'white',
   textAlign: 'center',
-  padding: '10px 0px 10px 0px',
+  padding: '10px 0px',
   textTransform: 'uppercase',
   fontWeight: '800',
 })
