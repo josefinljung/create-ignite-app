@@ -1,11 +1,10 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-// import { Typography } from '@mui/material'
-import { styled } from '@mui/system'
-import { Typography } from '@mui/material'
 import { Media, MediaReveal } from '@noaignite/oui'
-import { ASPECT_RATIOS } from 'utils/constants'
+import { Typography } from '@mui/material'
+import { styled } from '@mui/system'
 import { RouterLink } from 'containers'
+import { ASPECT_RATIOS } from 'utils/constants'
 
 const PromoCardSlideshowRoot = styled('section', {
   name: 'PromoCardSlideshow',
@@ -23,8 +22,6 @@ const PromoCardSlideshowMain = styled('div', {
   name: 'PromoCardSlideshow',
   slot: 'Main',
 })({
-  // paddingLeft: 'var(--cia-container-spacing)',
-  // paddingRight: 'var(--cia-container-spacing)',
   overflow: 'hidden',
 })
 
@@ -33,8 +30,6 @@ const PromoCardSlideshowEmblaContainer = styled('div', {
   slot: 'EmblaContainer',
 })({
   display: 'flex',
-  // marginLeft: theme.spacing(-2),
-  // display: 'block',
   width: '100%',
   position: 'relative',
 })
@@ -47,12 +42,28 @@ const PromoCardSlideshowEmblaSlide = styled('div', {
   flexShrink: 0,
   width: '100%',
   display: 'block',
-  paddingLeft: theme.spacing(0.1),
+  paddingLeft: theme.spacing(0.2),
   [theme.breakpoints.up('sm')]: {
     width: 'calc(100% / 2)',
   },
   [theme.breakpoints.up('md')]: {
     width: 'calc(100% / 3)',
+  },
+  // '&::after': {
+  //   position: 'absolute',
+  //   top: '0',
+  //   right: '0',
+  //   bottom: '0',
+  //   left: '0',
+  //   content: "''",
+  //   backgroundColor: '#000000',
+  //   opacity: '0.1',
+  //   transition: 'opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;',
+  // },
+  '&:hover': {
+    backgroundColor: 'black',
+    opacity: 0.6,
+    cursor: 'pointer',
   },
 }))
 
@@ -108,6 +119,7 @@ function PromoCardSlideshow(props) {
                     </MediaReveal>
                   </RouterLink>
                 )}
+
                 <PromoCardSlideshowArticleContent>
                   <Typography component="h2" variant="h6">
                     {item.subheading}
