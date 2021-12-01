@@ -44,7 +44,12 @@ const VideoMain = styled('div', {
   maxWidth: '760px',
   padding: 'var(--cia-section-spacing) var(--cia-container-spacing)',
   marginLeft: '0px',
-  fontWeight: '800',
+  position: 'absolute',
+  flexDirection: 'column',
+  bottom: '0',
+  left: '0',
+  display: 'flex',
+  alignItems: 'flex-end',
   h5: {
     letterSpacing: '2px',
   },
@@ -60,16 +65,28 @@ const VideoMain = styled('div', {
   },
 }))
 
+const VideoButtonContainer = styled('div', {
+  name: 'Video',
+  slot: 'Container',
+})({
+  display: 'flex',
+  marginRight: 'auto',
+})
+
 const VideoButton = styled(Button, {
   name: 'Video',
   slot: 'Button',
 })(({ theme }) => ({
   // Makes entire Video block clickable.
-  textDecoration: 'underline',
+  // textDecoration: 'underline',
+  borderBottom: '2px solid white',
   fontSize: '12px',
   fontWeight: 'bold',
   padding: '0px',
   marginRight: '10px',
+  display: 'flex',
+  alignItems: 'flex-start',
+  textAlign: 'left',
   '&:before': {
     ...theme.mixins.absolute(0),
     content: '""',
@@ -110,16 +127,23 @@ function Video(props) {
           {heading}
         </Typography>
 
-        {primaryCtaLabel && primaryCtaUrl && (
-          <VideoButton component={RouterLink} href={primaryCtaUrl} color="inherit" variant="text">
-            {primaryCtaLabel}
-          </VideoButton>
-        )}
-        {secondaryCtaLabel && secondaryCtaUrl && (
-          <VideoButton component={RouterLink} href={secondaryCtaUrl} color="inherit" variant="text">
-            {secondaryCtaLabel}
-          </VideoButton>
-        )}
+        <VideoButtonContainer>
+          {primaryCtaLabel && primaryCtaUrl && (
+            <VideoButton component={RouterLink} href={primaryCtaUrl} color="inherit" variant="text">
+              {primaryCtaLabel}
+            </VideoButton>
+          )}
+          {secondaryCtaLabel && secondaryCtaUrl && (
+            <VideoButton
+              component={RouterLink}
+              href={secondaryCtaUrl}
+              color="inherit"
+              variant="text"
+            >
+              {secondaryCtaLabel}
+            </VideoButton>
+          )}
+        </VideoButtonContainer>
       </VideoMain>
     </VideoRoot>
   )
