@@ -81,7 +81,7 @@ export default {
     },
   },
   PromoCardSlideshow: {
-    items: Array.from(new Array(3), () => ({
+    items: Array.from(new Array(6), () => ({
       mediaProps: {
         component: 'img',
         src: '//source.unsplash.com/random',

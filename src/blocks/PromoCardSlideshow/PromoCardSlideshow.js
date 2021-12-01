@@ -1,5 +1,6 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
+import useEmblaCarousel from 'embla-carousel-react'
 import { Media, MediaReveal } from '@noaignite/oui'
 import { Typography } from '@mui/material'
 import { styled } from '@mui/system'
@@ -9,19 +10,15 @@ import { ASPECT_RATIOS } from 'utils/constants'
 const PromoCardSlideshowRoot = styled('section', {
   name: 'PromoCardSlideshow',
   slot: 'Root',
-})(({ theme }) => ({
-  color: 'white',
-  fontWeight: 'bolder',
-  display: 'none',
-  [theme.breakpoints.up('md')]: {
-    display: 'block',
-  },
-}))
-
-const PromoCardSlideshowMain = styled('div', {
-  name: 'PromoCardSlideshow',
-  slot: 'Main',
 })({
+  position: 'relative',
+})
+
+const PromoCardSlideshowEmbla = styled('div', {
+  name: 'PromoCardSlideshow',
+  slot: 'Embla',
+})({
+  width: '100%',
   overflow: 'hidden',
 })
 
@@ -30,8 +27,7 @@ const PromoCardSlideshowEmblaContainer = styled('div', {
   slot: 'EmblaContainer',
 })({
   display: 'flex',
-  width: '100%',
-  position: 'relative',
+  marginLeft: -1,
 })
 
 const PromoCardSlideshowEmblaSlide = styled('div', {
@@ -41,19 +37,41 @@ const PromoCardSlideshowEmblaSlide = styled('div', {
   position: 'relative',
   flexShrink: 0,
   width: '100%',
-  display: 'block',
-  paddingLeft: theme.spacing(0.2),
+  paddingLeft: 1,
   [theme.breakpoints.up('sm')]: {
     width: 'calc(100% / 2)',
   },
   [theme.breakpoints.up('md')]: {
     width: 'calc(100% / 3)',
   },
-  '&:hover': {
-    backgroundColor: 'black',
-    opacity: 0.6,
-    cursor: 'pointer',
+}))
+
+const PromoCardSlideshowArticle = styled('article', {
+  name: 'PromoCardSlideshow',
+  slot: 'Article',
+})(({ theme }) => ({
+  position: 'relative',
+  display: 'block',
+  '&::after': {
+    ...theme.mixins.absolute(0),
+    content: '""',
+    backgroundColor: theme.palette.common.black,
+    opacity: 0,
+    // visibility: 'hidden',
+    transition: theme.transitions.create('opacity', {
+      duration: theme.transitions.duration.shortest,
+    }),
   },
+  '&:hover::after': {
+    opacity: 0.2,
+    // visibility: 'visible',
+  },
+  // Hover effect doesn't work.
+  // '&:hover': {
+  //   backgroundColor: 'black',
+  //   opacity: 0.6,
+  //   cursor: 'pointer',
+  // },
 }))
 
 const PromoCardSlideshowArticleContent = styled('div', {
@@ -61,44 +79,44 @@ const PromoCardSlideshowArticleContent = styled('div', {
   slot: 'EmblaSlide',
 })(({ theme }) => ({
   ...theme.mixins.verticalRhythm(1),
-  padding: theme.spacing(2, 0),
+  ...theme.mixins.absolute(0),
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: theme.spacing(2, 0),
   textAlign: 'center',
-  position: 'absolute',
-  top: '0',
-  right: '0',
-  bottom: '0',
-  left: '0',
-  h2: {
-    textTransform: 'uppercase',
-  },
-  h3: {
-    textDecoration: 'underline',
-    textUnderlineOffset: '0.2em',
-    fontWeight: '400',
-    fontSize: '28px',
-  },
+  color: theme.palette.common.white,
+  // h2: {
+  //   textTransform: 'uppercase',
+  // },
+  // h3: {
+  //   textDecoration: 'underline',
+  //   textUnderlineOffset: '0.2em',
+  //   fontWeight: '400',
+  //   fontSize: '28px',
+  // },
 }))
 
 function PromoCardSlideshow(props) {
   const { items } = props
 
+  const [emblaRef] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+  })
+
   return (
     <PromoCardSlideshowRoot>
-      <PromoCardSlideshowMain>
+      <PromoCardSlideshowEmbla ref={emblaRef}>
         <PromoCardSlideshowEmblaContainer>
           {items?.map((item, idx) => (
             <PromoCardSlideshowEmblaSlide key={idx}>
-              <article>
+              <PromoCardSlideshowArticle as={RouterLink} href={item.url}>
                 {item.mediaProps && (
-                  <RouterLink href={item.url}>
-                    <MediaReveal {...ASPECT_RATIOS.article}>
-                      <Media {...ASPECT_RATIOS.article} {...item.mediaProps} />
-                    </MediaReveal>
-                  </RouterLink>
+                  <MediaReveal {...ASPECT_RATIOS.article}>
+                    <Media {...ASPECT_RATIOS.article} {...item.mediaProps} />
+                  </MediaReveal>
                 )}
 
                 <PromoCardSlideshowArticleContent>
@@ -110,11 +128,11 @@ function PromoCardSlideshow(props) {
                     {item.heading}
                   </Typography>
                 </PromoCardSlideshowArticleContent>
-              </article>
+              </PromoCardSlideshowArticle>
             </PromoCardSlideshowEmblaSlide>
           ))}
         </PromoCardSlideshowEmblaContainer>
-      </PromoCardSlideshowMain>
+      </PromoCardSlideshowEmbla>
     </PromoCardSlideshowRoot>
   )
 }

@@ -6,8 +6,8 @@ const caseAllCaps = {
 
 export default function createTypography(palette, typography) {
   const {
-    fontFamilyPrimary = '"Helvetica", "Arial", sans-serif',
-    fontFamilySecondary = fontFamilyPrimary,
+    fontFamilyPrimary = '"GT America", sans-serif',
+    fontFamilySecondary = '"GT America Extended", sans-serif',
     // The default font size of the Material Specification.
     fontSize = 14, // px
     fontWeightLight = 300,
@@ -15,7 +15,7 @@ export default function createTypography(palette, typography) {
     fontWeightMedium = 500,
     fontWeightSemibold = 600,
     fontWeightBold = 700,
-    // Tell MUI what's the font-size on the html element.
+    // Tell Material-UI what's the font-size on the html element.
     // 16px is the default font-size used by browsers.
     htmlFontSize = 16,
     // Apply the CSS properties to all the variants.
@@ -37,21 +37,21 @@ export default function createTypography(palette, typography) {
   })
 
   const variants = {
-    h1: buildVariant(fontFamilySecondary, fontWeightRegular, 72, 1, -0.01),
-    h2: buildVariant(fontFamilySecondary, fontWeightRegular, 58, 1, 0.01),
-    h3: buildVariant(fontFamilySecondary, fontWeightRegular, 40, 1.05, 0.01),
-    h4: buildVariant(fontFamilySecondary, fontWeightRegular, 22, 1.2, 0.03),
-    h5: buildVariant(fontFamilySecondary, fontWeightRegular, 16, 1.3, 0.03),
-    h6: buildVariant(fontFamilySecondary, fontWeightRegular, 12, 1.5, 0.04),
-    subtitle1: buildVariant(fontFamilyPrimary, fontWeightRegular, 18, 1.5, 0),
-    subtitle2: buildVariant(fontFamilyPrimary, fontWeightMedium, 12, 1.7, 0.02),
-    body1: buildVariant(fontFamilyPrimary, fontWeightRegular, 16, 1.7, 0),
-    body2: buildVariant(fontFamilyPrimary, fontWeightRegular, 14, 1.7, 0),
-    button: buildVariant(fontFamilySecondary, fontWeightMedium, 12, 1.4, 0.04, caseAllCaps),
-    caption: buildVariant(fontFamilyPrimary, fontWeightSemibold, 14, 1.3, 0.02),
-    overline: buildVariant(fontFamilySecondary, fontWeightRegular, 8, 1.7, 0.12, caseAllCaps),
+    h1: buildVariant(fontFamilySecondary, fontWeightBold, 67, 1.085, -0.0373, caseAllCaps),
+    h2: buildVariant(fontFamilySecondary, fontWeightBold, 51, 1.185, -0.0355, caseAllCaps),
+    h3: buildVariant(fontFamilySecondary, fontWeightBold, 38, 1.275, -0.021, caseAllCaps),
+    h4: buildVariant(fontFamilySecondary, fontWeightBold, 28, 1.3, -0.029, caseAllCaps),
+    h5: buildVariant(fontFamilySecondary, fontWeightMedium, 28, 1.3, -0.028),
+    h6: buildVariant(fontFamilySecondary, fontWeightMedium, 22, 1.1, -0.0225),
+    subtitle1: buildVariant(fontFamilyPrimary, fontWeightBold, 16, 1.5, -0.006),
+    subtitle2: buildVariant(fontFamilyPrimary, fontWeightBold, 14, 1.5, 0),
+    body1: buildVariant(fontFamilyPrimary, fontWeightRegular, 16, 1.5, 0.0125),
+    body2: buildVariant(fontFamilyPrimary, fontWeightRegular, 14, 1.5, 0.03),
+    button: buildVariant(fontFamilySecondary, fontWeightBold, 12, 1, 0.06, caseAllCaps),
+    caption: buildVariant(fontFamilyPrimary, fontWeightRegular, 12, 1, 0.05),
+    overline: buildVariant(fontFamilySecondary, fontWeightMedium, 11, 1.5, 0.1125, caseAllCaps),
     // Custom variants
-    input: buildVariant(fontFamilyPrimary, fontWeightRegular, 16, 1.5, 0), // Should at least be 16px fontSize for iOS Safari not to zoom in on focus.
+    input: buildVariant(fontFamilyPrimary, fontWeightRegular, 16, 1.5, 0.02), // Should at least be 16px fontSize for iOS Safari not to zoom in on focus.
   }
 
   const typographyOutput = deepmerge(

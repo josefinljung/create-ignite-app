@@ -11,6 +11,7 @@ import {
   Brand as BrandIcon,
   Cart as CartIcon,
   Close as CloseIcon,
+  Language as LanguageIcon,
   Menu as MenuIcon,
   Search as SearchIcon,
 } from 'components/icons'
@@ -29,18 +30,18 @@ export const classes = generateUtilityClasses('CiaAppHeader', [
 const AppHeaderRoot = styled(AppBar, {
   name: 'AppHeader',
   slot: 'Root',
-})(({ theme, ownerState }) => ({
-  ...(ownerState.appBarColor === 'transparent' && {
-    '&:not(:hover):not(:focus-within)': {
-      backgroundColor: 'transparent',
-      color: 'inherit',
-    },
-  }),
-  ...(ownerState.disableTransparency !== undefined && {
-    transition: theme.transitions.create(['background-color'], {
-      duration: theme.transitions.duration.shortest, // Match value of `IconButton`
-    }),
-  }),
+})(({ theme }) => ({
+  // ...(ownerState.appBarColor === 'transparent' && {
+  //   '&:not(:hover):not(:focus-within)': {
+  //     backgroundColor: 'transparent',
+  //     color: 'inherit',
+  //   },
+  // }),
+  // ...(ownerState.disableTransparency !== undefined && {
+  //   transition: theme.transitions.create(['background-color'], {
+  //     duration: theme.transitions.duration.shortest, // Match value of `IconButton`
+  //   }),
+  // }),
   // Util classes
   [`& .${classes.toolbarPushMobile}`]: {
     [theme.breakpoints.down(BREAKPOINT_KEY)]: { marginLeft: 'auto' },
@@ -56,17 +57,57 @@ const AppHeaderRoot = styled(AppBar, {
   },
 }))
 
+const AppHeaderTop = styled('div', {
+  name: 'AppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  borderBottom: '1px solid black',
+  fontSize: '12px',
+  letterSpacing: '1px',
+  marginLeft: 'var(--cia-toolbar-spacing)',
+  marginRight: 'var(--cia-toolbar-spacing)',
+})
+
+const AppHeaderTopContentStart = styled('span', {
+  name: 'AppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  textAlign: 'center',
+  width: '100%',
+  margin: '9px 0px',
+  padding: '0px 16px',
+})
+
+const AppHeaderTopContentEnd = styled('span', {
+  name: 'AppHeader',
+  slot: 'BrandLink',
+})({
+  position: 'relative',
+  borderLeft: '1px solid black',
+  textAlign: 'center',
+  width: '100%',
+  margin: '9px 0px',
+  padding: '0px 16px',
+})
+
 const AppHeaderBrandLink = styled(RouterLink, {
   name: 'AppHeader',
   slot: 'BrandLink',
 })({
   position: 'absolute',
   left: '50%',
+  top: '-10%',
+  padding: '10px',
   transform: 'translateX(-50%)',
   color: 'inherit',
   '& > svg': {
     display: 'block',
     width: 'auto',
+    height: 65,
   },
 })
 
@@ -87,40 +128,40 @@ const AppHeader = React.memo(function AppHeader(props) {
   const { t } = useI18n()
   const [rootRef, dimensions] = useDimensions()
 
-  const [disableTransparency, setDisableTransparency] = React.useState(undefined)
-  const syncDisableTransparency = React.useCallback(() => {
-    setDisableTransparency(window.pageYOffset > 100)
-  }, [])
+  // const [disableTransparency, setDisableTransparency] = React.useState(undefined)
+  // const syncDisableTransparency = React.useCallback(() => {
+  //   setDisableTransparency(window.pageYOffset > 100)
+  // }, [])
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      syncDisableTransparency()
-    }
+  // React.useEffect(() => {
+  //   const handleScroll = () => {
+  //     syncDisableTransparency()
+  //   }
 
-    if (headerMode === 'auto') {
-      window.addEventListener('scroll', handleScroll, { passive: true })
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }
+  //   if (headerMode === 'auto') {
+  //     window.addEventListener('scroll', handleScroll, { passive: true })
+  //     return () => {
+  //       window.removeEventListener('scroll', handleScroll)
+  //     }
+  //   }
 
-    // Define `disableTransparency` value on `headerMode` prop change, thereby
-    // enabling transitions. Doing so negates flashing of header on page load
-    // for pages that don't use `headerMode="opaque"`.
-    return syncDisableTransparency
-  }, [headerMode, syncDisableTransparency])
+  //   // Define `disableTransparency` value on `headerMode` prop change, thereby
+  //   // enabling transitions. Doing so negates flashing of header on page load
+  //   // for pages that don't use `headerMode="opaque"`.
+  //   return syncDisableTransparency
+  // }, [headerMode, syncDisableTransparency])
 
-  let appBarColor = 'default'
-  if (
-    (headerMode === 'transparent' || (headerMode === 'auto' && !disableTransparency)) &&
-    !isSomeMenuOpen
-  ) {
-    appBarColor = 'transparent'
-  }
+  // let appBarColor = 'default'
+  // if (
+  //   (headerMode === 'transparent' || (headerMode === 'auto' && !disableTransparency)) &&
+  //   !isSomeMenuOpen
+  // ) {
+  //   appBarColor = 'transparent'
+  // }
 
   return (
     <AppHeaderRoot
-      ownerState={{ appBarColor, disableTransparency }}
+      // ownerState={{ appBarColor, disableTransparency }}
       position={headerMode === 'opaque' ? 'sticky' : 'fixed'}
       ref={rootRef}
       {...other}
@@ -137,6 +178,11 @@ const AppHeader = React.memo(function AppHeader(props) {
         `,
         }}
       />
+
+      <AppHeaderTop>
+        <AppHeaderTopContentStart>Welcome to Maya Delorez</AppHeaderTopContentStart>
+        <AppHeaderTopContentEnd>Fast deliveries</AppHeaderTopContentEnd>
+      </AppHeaderTop>
 
       <Toolbar>
         <IconButton
@@ -168,6 +214,15 @@ const AppHeader = React.memo(function AppHeader(props) {
         </IconButton>
 
         <IconButton
+          className={classes.hiddenOnMobile}
+          size="small"
+          aria-haspopup="true"
+          aria-label={t(__translationGroup)`Toggle language menu`}
+        >
+          <LanguageIcon />
+        </IconButton>
+
+        <IconButton
           onClick={onCartMenuToggle}
           edge="end"
           size="small"
@@ -178,7 +233,7 @@ const AppHeader = React.memo(function AppHeader(props) {
           {isCartMenuOpen ? (
             <CloseIcon />
           ) : (
-            <Badge badgeContent={productsCount} color="primary" overlap="circular">
+            <Badge badgeContent={productsCount} color="text" overlap="circular">
               <CartIcon />
             </Badge>
           )}

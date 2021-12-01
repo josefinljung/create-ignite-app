@@ -61,9 +61,16 @@ const ArticleCardArticleContent = styled('div', {
   slot: 'EmblaSlide',
 })(({ theme }) => ({
   ...theme.mixins.verticalRhythm(1),
-  padding: theme.spacing(2, 0),
+  padding: theme.spacing(4, 0),
   textTransform: 'uppercase',
-  marginTop: '16px',
+  '&:hover': {
+    cursor: 'pointer',
+  },
+  h2: {
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
 }))
 
 function ArticleCard(props) {

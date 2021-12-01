@@ -6,13 +6,12 @@ import { SITE_FOOTER_ID, SITE_HEADER_ID, SITE_MAIN_ID } from 'utils/constants'
 import AppContext from './AppContext'
 import AppCartDrawer from './partials/AppCartDrawer'
 import AppFooter from './partials/AppFooter'
-// import AppHeader from './partials/AppHeader'
+import AppHeader from './partials/AppHeader'
 import AppLoader from './partials/AppLoader'
 import AppMarketDialog from './partials/AppMarketDialog'
 import AppNavDrawer from './partials/AppNavDrawer'
 import AppSearchDrawer from './partials/AppSearchDrawer'
 import AppSkipLink from './partials/AppSkipLink'
-import MDAppHeader from './partials/MDAppHeader'
 
 const AppCookieBar = dynamic(
   () => import(/* webpackChunkName: "./partials/AppCookieBar" */ './partials/AppCookieBar'),
@@ -43,7 +42,7 @@ function App(props) {
     <AppRoot>
       <AppSkipLink href={`#${SITE_MAIN_ID}`} />
 
-      {!disableHeader && <MDAppHeader headerMode={headerMode} id={SITE_HEADER_ID} />}
+      {!disableHeader && <AppHeader headerMode={headerMode} id={SITE_HEADER_ID} />}
 
       <AppMain id={SITE_MAIN_ID} role="main" tabIndex="-1">
         {children}
