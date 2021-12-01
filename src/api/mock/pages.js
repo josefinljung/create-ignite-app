@@ -13,12 +13,12 @@ export default {
         props: blocks.Marquee,
       },
       {
-        name: 'ArticleCard',
-        props: blocks.ArticleCard,
-      },
-      {
         name: 'PromoCardSlideshow',
         props: blocks.PromoCardSlideshow,
+      },
+      {
+        name: 'ArticleCard',
+        props: blocks.ArticleCard,
       },
       // {
       //   name: 'ArticleSlideshow',

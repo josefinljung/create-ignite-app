@@ -15,7 +15,6 @@ const ArticleCardRoot = styled('section', {
   position: 'relative',
   margin: 'var(--cia-section-spacing) 0',
   paddingLeft: '6vw',
-  paddingRight: '6vw',
 })
 
 const ArticleCardHeader = styled('div', {
@@ -47,13 +46,13 @@ const ArticleCardEmblaSlide = styled('div', {
 })(({ theme }) => ({
   position: 'relative',
   flexShrink: 0,
-  width: '100%',
   paddingLeft: theme.spacing(0.12),
-  [theme.breakpoints.up('sm')]: {
-    width: 'calc(100% / 2)',
-  },
+  width: 'calc(100% / 2)',
   [theme.breakpoints.up('md')]: {
     width: 'calc(100% / 3)',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: 'calc(100% / 5)',
   },
 }))
 
