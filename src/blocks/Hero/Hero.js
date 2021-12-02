@@ -16,9 +16,6 @@ const HeroRoot = styled('section', {
   justifyContent: 'end',
   paddingBottom: '60px',
   minHeight: 550,
-  color: theme.palette.getContrastText(theme.palette.text.primary),
-  textAlign: 'left',
-  textTransform: 'uppercase',
   [theme.breakpoints.up('md')]: {
     minHeight: 760,
   },
@@ -50,15 +47,16 @@ const HeroMain = styled('div', {
   left: '0',
   display: 'flex',
   alignItems: 'flex-end',
-  h5: {
-    letterSpacing: '2px',
-  },
+  color: theme.palette.getContrastText(theme.palette.text.primary),
+  textAlign: 'left',
+  textTransform: 'uppercase',
   h1: {
-    fontWeight: '800',
+    fontSize: 'clamp(2.375rem, 6.9vw, 4.1875rem)',
+  },
+  h5: {
+    marginRight: 'auto',
   },
   a: {
-    fontWeight: '800',
-
     '&:hover': {
       textDecoration: 'underline',
     },
@@ -69,7 +67,7 @@ const HeroButtonContainer = styled('div', {
   name: 'Hero',
   slot: 'Container',
 })({
-  display: 'flex',
+  display: '-webkit-flex',
   marginRight: 'auto',
 })
 
@@ -79,14 +77,15 @@ const HeroButton = styled(Button, {
 })(({ theme }) => ({
   // Makes entire Hero block clickable.
   // textDecoration: 'underline',
-  borderBottom: '2px solid white',
-  fontSize: '12px',
-  fontWeight: 'bold',
-  padding: '0px',
-  marginRight: '10px',
   display: 'flex',
   alignItems: 'flex-start',
+  margin: 4,
+  padding: '0px',
+  fontWeight: 'bold',
   textAlign: 'left',
+  fontSize: '0.75rem',
+  textDecoration: 'underline',
+  textUnderlineOffset: '0.2em',
   '&:before': {
     ...theme.mixins.absolute(0),
     content: '""',
@@ -120,16 +119,23 @@ function Hero(props) {
       )}
 
       <HeroMain>
-        <Typography component="h5" variant="h6">
-          {subheading}
-        </Typography>
-        <Typography component="h1" variant="h1">
+        {subheading && (
+          <Typography component="h5" variant="h6">
+            {subheading}
+          </Typography>
+        )}
+        <Typography component="h1" variant="h3">
           {heading}
         </Typography>
 
         <HeroButtonContainer>
           {primaryCtaLabel && primaryCtaUrl && (
-            <HeroButton component={RouterLink} href={primaryCtaUrl} color="inherit" variant="text">
+            <HeroButton
+              component={RouterLink}
+              href={primaryCtaUrl}
+              color="inherit"
+              variant="button"
+            >
               {primaryCtaLabel}
             </HeroButton>
           )}
@@ -138,7 +144,7 @@ function Hero(props) {
               component={RouterLink}
               href={secondaryCtaUrl}
               color="inherit"
-              variant="text"
+              variant="button"
             >
               {secondaryCtaLabel}
             </HeroButton>
