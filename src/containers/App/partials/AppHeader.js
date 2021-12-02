@@ -17,6 +17,7 @@ import {
 } from 'components/icons'
 import RouterLink from '../../RouterLink'
 import { useApp } from '../AppContext'
+import AppHeaderLinks from './AppHeaderLinks'
 
 const BREAKPOINT_KEY = 'md'
 
@@ -186,6 +187,7 @@ const AppHeader = React.memo(function AppHeader(props) {
 
       <Toolbar>
         <IconButton
+          className={classes.hiddenOnDesktop}
           onClick={onNavMenuToggle}
           edge="start"
           size="small"
@@ -195,6 +197,8 @@ const AppHeader = React.memo(function AppHeader(props) {
         >
           {isNavMenuOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
+
+        <AppHeaderLinks className={classes.hiddenOnMobile} />
 
         <div className={classes.toolbarPushMobile} />
         <div className={classes.toolbarPushDesktop} />
