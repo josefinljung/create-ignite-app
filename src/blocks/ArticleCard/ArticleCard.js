@@ -4,7 +4,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { styled } from '@mui/system'
 import { Typography } from '@mui/material'
 import { Media, MediaReveal } from '@noaignite/oui'
-// import { useI18n } from 'api'
 import { ASPECT_RATIOS } from 'utils/constants'
 import { RouterLink } from 'containers'
 
@@ -76,8 +75,6 @@ const ArticleCardArticleContent = styled('div', {
 function ArticleCard(props) {
   const { heading, items } = props
 
-  // const { t } = useI18n()
-
   const [emblaRef] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
@@ -92,7 +89,6 @@ function ArticleCard(props) {
           </Typography>
         </ArticleCardHeader>
       )}
-
       <ArticleCardMain>
         <div ref={emblaRef}>
           <ArticleCardEmblaContainer>
