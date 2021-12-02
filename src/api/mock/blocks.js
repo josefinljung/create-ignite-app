@@ -81,7 +81,7 @@ export default {
     })),
   },
   Marquee: {
-    heading: ' EQUESTRIAN FASHION INNOVATION BRAND FROM SWEDEN • ',
+    heading: ' Equestrain fashion innovation brand from Sweden • ',
   },
   Media: {
     mediaProps: {
