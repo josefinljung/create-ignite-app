@@ -18,15 +18,12 @@ const MarqueeRoot = styled('section', {
 const MarqueeMain = styled('div', {
   name: 'Marquee',
   slot: 'Main',
-})({
+})(({ theme }) => ({
+  ...theme.typography.button,
   padding: '16px 0px',
   overflow: 'hidden',
   color: 'white',
-  fontWeight: '600',
-  lineHeight: '1.5',
-  letterSpacing: '0.1125em',
-  textTransform: 'uppercase',
-})
+}))
 
 function Marquee(props) {
   const { heading, repeatHeading = 10, speed = 20 } = props
