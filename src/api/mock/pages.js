@@ -5,8 +5,8 @@ export default {
     headerMode: 'auto',
     children: [
       {
-        name: 'Video',
-        props: blocks.Video,
+        name: 'Hero',
+        props: blocks.Hero,
       },
       {
         name: 'Marquee',

@@ -69,24 +69,6 @@ export default function createMixins(breakpoints, spacing, mixins) {
     sticky: (...args) => {
       return position('sticky', ...args)
     },
-    fluidType: (minBreakpoint, maxBreakpoint, minFontSize, maxFontSize) => {
-      const minVw = breakpoints.values[minBreakpoint] || minBreakpoint
-      const maxVw = breakpoints.values[maxBreakpoint] || maxBreakpoint
-      const minFs = minFontSize.fontSize || minFontSize
-      const maxFs = maxFontSize.fontSize || maxFontSize
-
-      return {
-        fontSize: minFs,
-        [`@media (min-width: ${minVw}px)`]: {
-          fontSize: `calc(${minFs}px + ${maxFs - minFs} * ((100vw - ${minVw}px) / ${
-            maxVw - minVw
-          }))`,
-        },
-        [`@media (min-width: ${maxVw}px)`]: {
-          fontSize: maxFs,
-        },
-      }
-    },
     lineClamp: (lines) => ({
       display: '-webkit-box',
       WebkitBoxOrient: 'vertical',
@@ -103,7 +85,6 @@ export default function createMixins(breakpoints, spacing, mixins) {
     scrollbars: {
       '&::-webkit-scrollbar': {
         width: 5,
-        backgroundColor: grey[200],
       },
       '&::-webkit-scrollbar-thumb': {
         backgroundColor: grey[800],

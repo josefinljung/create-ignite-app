@@ -53,6 +53,20 @@ export default {
       <h6>Header Level 6</h6>
     `,
   },
+  Hero: {
+    backgroundMediaProps: {
+      component: 'video',
+      breakpoints: {
+        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
+        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
+      },
+    },
+    heading: 'Innovative equestrian wear',
+    primaryCtaLabel: "Shop women's",
+    primaryCtaUrl: '/foo1',
+    secondaryCtaLabel: "Shop men's",
+    secondaryCtaUrl: '/foo2',
+  },
   ProductSlideshow: {
     heading: 'Generic Heading',
     items: Array.from(new Array(6), () => ({
@@ -90,19 +104,5 @@ export default {
       heading: 'Bestsellers',
       url: '/foo',
     })),
-  },
-  Video: {
-    backgroundMediaProps: {
-      component: 'video',
-      breakpoints: {
-        xs: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
-        sm: '//cms.mayadelorez.com/wp-content/uploads/2021/11/Header-mobile-2021-11-29.mp4',
-      },
-    },
-    heading: 'Innovative equestrian wear',
-    primaryCtaLabel: "Shop women's",
-    primaryCtaUrl: '/foo1',
-    secondaryCtaLabel: "Shop men's",
-    secondaryCtaUrl: '/foo2',
   },
 }

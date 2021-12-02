@@ -1,10 +1,10 @@
 import { deepmerge } from '@mui/utils'
 import { alpha } from '@mui/material/styles'
-import { pink, purple } from '@mui/material/colors'
 import blue from '../colors/blue'
 import common from '../colors/common'
 import green from '../colors/green'
 import grey from '../colors/grey'
+import olive from '../colors/olive'
 import orange from '../colors/orange'
 import red from '../colors/red'
 
@@ -39,7 +39,7 @@ export const light = {
   // The colors used to style inverted text.
   textInverted: lightText,
   // The color used to divide different elements.
-  divider: 'rgba(0, 0, 0, 0.12)',
+  divider: 'rgba(0, 0, 0, 1)',
   // The background colors used to style the surfaces.
   // Consistency between these values is important.
   background: {
@@ -50,10 +50,10 @@ export const light = {
   action: {
     // The color of an active action like an icon button.
     active: common.black,
-    // The background color of an hovered action.
+    // The color of an hovered action.
     hover: 'rgba(0, 0, 0, 0.04)',
     hoverOpacity: 0.04,
-    // The background color of a selected action.
+    // The color of a selected action.
     selected: 'rgba(0, 0, 0, 0.08)',
     selectedOpacity: 0.08,
     // The color of a disabled action.
@@ -73,7 +73,7 @@ export const dark = {
   divider: 'rgba(255, 255, 255, 0.12)',
   background: {
     default: common.black,
-    paper: grey[800],
+    paper: grey[900],
   },
   action: {
     active: common.white,
@@ -93,14 +93,14 @@ export const dark = {
 export default function createPalette(palette) {
   const {
     primary = {
-      light: pink[300],
-      main: pink[500],
-      dark: pink[700],
+      light: olive[300],
+      main: olive[500],
+      dark: olive[700],
     },
     secondary = {
-      light: purple[300],
-      main: purple[500],
-      dark: purple[700],
+      light: grey[300],
+      main: grey[500],
+      dark: grey[700],
     },
     error = {
       light: red[300],

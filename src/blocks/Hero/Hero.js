@@ -13,12 +13,14 @@ const HeroRoot = styled('section', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'end',
+  paddingBottom: '60px',
   minHeight: 550,
   color: theme.palette.getContrastText(theme.palette.text.primary),
-  textAlign: 'center',
+  textAlign: 'left',
+  textTransform: 'uppercase',
   [theme.breakpoints.up('md')]: {
-    minHeight: 650,
+    minHeight: 760,
   },
 }))
 
@@ -39,16 +41,52 @@ const HeroMain = styled('div', {
 })(({ theme }) => ({
   ...theme.mixins.verticalRhythm(2),
   ...theme.mixins.contain('sm'),
-  paddingLeft: 'var(--cia-container-spacing)',
-  paddingRight: 'var(--cia-container-spacing)',
+  maxWidth: '760px',
+  padding: 'var(--cia-section-spacing) var(--cia-container-spacing)',
+  marginLeft: '0px',
+  position: 'absolute',
+  flexDirection: 'column',
+  bottom: '0',
+  left: '0',
+  display: 'flex',
+  alignItems: 'flex-end',
+  h5: {
+    letterSpacing: '2px',
+  },
+  h1: {
+    fontWeight: '800',
+  },
+  a: {
+    fontWeight: '800',
+
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
 }))
+
+const HeroButtonContainer = styled('div', {
+  name: 'Hero',
+  slot: 'Container',
+})({
+  display: 'flex',
+  marginRight: 'auto',
+})
 
 const HeroButton = styled(Button, {
   name: 'Hero',
   slot: 'Button',
 })(({ theme }) => ({
   // Makes entire Hero block clickable.
-  position: 'static',
+  // textDecoration: 'underline',
+  borderBottom: '2px solid white',
+  fontSize: '12px',
+  fontWeight: 'bold',
+  padding: '0px',
+  marginRight: '10px',
+  display: 'flex',
+  alignItems: 'flex-start',
+  textAlign: 'left',
   '&:before': {
     ...theme.mixins.absolute(0),
     content: '""',
@@ -56,7 +94,16 @@ const HeroButton = styled(Button, {
 }))
 
 function Hero(props) {
-  const { backgroundMediaProps, ctaLabel, ctaUrl, heading, excerpt, renderIndex } = props
+  const {
+    backgroundMediaProps,
+    primaryCtaLabel,
+    primaryCtaUrl,
+    secondaryCtaLabel,
+    secondaryCtaUrl,
+    heading,
+    subheading,
+    renderIndex,
+  } = props
 
   return (
     <HeroRoot>
@@ -73,17 +120,30 @@ function Hero(props) {
       )}
 
       <HeroMain>
-        <Typography component="h1" variant="h2">
+        <Typography component="h5" variant="h6">
+          {subheading}
+        </Typography>
+        <Typography component="h1" variant="h1">
           {heading}
         </Typography>
 
-        {excerpt && <Typography>{excerpt}</Typography>}
-
-        {ctaLabel && ctaUrl && (
-          <HeroButton component={RouterLink} href={ctaUrl} color="inherit" variant="outlined">
-            {ctaLabel}
-          </HeroButton>
-        )}
+        <HeroButtonContainer>
+          {primaryCtaLabel && primaryCtaUrl && (
+            <HeroButton component={RouterLink} href={primaryCtaUrl} color="inherit" variant="text">
+              {primaryCtaLabel}
+            </HeroButton>
+          )}
+          {secondaryCtaLabel && secondaryCtaUrl && (
+            <HeroButton
+              component={RouterLink}
+              href={secondaryCtaUrl}
+              color="inherit"
+              variant="text"
+            >
+              {secondaryCtaLabel}
+            </HeroButton>
+          )}
+        </HeroButtonContainer>
       </HeroMain>
     </HeroRoot>
   )
@@ -91,10 +151,13 @@ function Hero(props) {
 
 Hero.propTypes = {
   backgroundMediaProps: PropTypes.object,
-  ctaLabel: PropTypes.string,
-  ctaUrl: PropTypes.string,
+  primaryCtaLabel: PropTypes.string,
+  primaryCtaUrl: PropTypes.string,
+  secondaryCtaLabel: PropTypes.string,
+  secondaryCtaUrl: PropTypes.string,
   excerpt: PropTypes.string,
   heading: PropTypes.string,
+  subheading: PropTypes.string,
   renderIndex: PropTypes.number.isRequired,
 }
 
