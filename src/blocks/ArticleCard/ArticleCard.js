@@ -87,7 +87,7 @@ function ArticleCard(props) {
     <ArticleCardRoot>
       {heading && (
         <ArticleCardHeader>
-          <Typography component="h1" variant="h4">
+          <Typography component="h1" variant="h6">
             {heading}
           </Typography>
         </ArticleCardHeader>
