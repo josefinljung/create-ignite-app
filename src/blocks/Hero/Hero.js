@@ -49,10 +49,6 @@ const HeroMain = styled('div', {
   alignItems: 'flex-end',
   color: theme.palette.getContrastText(theme.palette.text.primary),
   textAlign: 'left',
-  textTransform: 'uppercase',
-  h1: {
-    fontSize: 'clamp(2.375rem, 6.9vw, 4.1875rem)',
-  },
   h5: {
     marginRight: 'auto',
   },
@@ -76,16 +72,13 @@ const HeroButton = styled(Button, {
   slot: 'Button',
 })(({ theme }) => ({
   // Makes entire Hero block clickable.
-  // textDecoration: 'underline',
+
   display: 'flex',
   alignItems: 'flex-start',
   margin: 4,
   padding: '0px',
-  fontWeight: 'bold',
-  textAlign: 'left',
-  fontSize: '0.75rem',
   textDecoration: 'underline',
-  textUnderlineOffset: '0.2em',
+  textUnderlineOffset: '2px',
   '&:before': {
     ...theme.mixins.absolute(0),
     content: '""',
@@ -124,6 +117,7 @@ function Hero(props) {
             {subheading}
           </Typography>
         )}
+
         <Typography component="h1" variant="h3">
           {heading}
         </Typography>
