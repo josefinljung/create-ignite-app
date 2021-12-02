@@ -11,23 +11,21 @@ const MarqueeRoot = styled('section', {
   position: 'relative',
   fontSize: '12px',
   backgroundColor: 'black',
-  color: 'white',
-  textAlign: 'center',
-  padding: '10px 0px',
-  textTransform: 'uppercase',
-  fontWeight: '800',
+  // textAlign: 'center',
+  // textTransform: 'uppercase',
 })
 
 const MarqueeMain = styled('div', {
   name: 'Marquee',
   slot: 'Main',
 })({
-  paddingLeft: '0px',
-  paddingRight: '0px',
+  padding: '16px 0px',
   overflow: 'hidden',
-  lineHeight: '1',
-  letterSpacing: '4px',
-  fontWeight: '800',
+  color: 'white',
+  fontWeight: '600',
+  lineHeight: '1.5',
+  letterSpacing: '0.1125em',
+  textTransform: 'uppercase',
 })
 
 function Marquee(props) {
@@ -36,7 +34,7 @@ function Marquee(props) {
   return (
     <MarqueeRoot>
       <MarqueeMain>
-        <Typography variant="h6">
+        <Typography variant="span">
           <ReactFastMarquee gradient={false} speed={speed}>
             {Array.from(new Array(repeatHeading), () => heading)}
           </ReactFastMarquee>
