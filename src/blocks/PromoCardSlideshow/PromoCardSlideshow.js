@@ -57,21 +57,13 @@ const PromoCardSlideshowArticle = styled('article', {
     content: '""',
     backgroundColor: theme.palette.common.black,
     opacity: 0,
-    // visibility: 'hidden',
     transition: theme.transitions.create('opacity', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   '&:hover::after': {
     opacity: 0.2,
-    // visibility: 'visible',
   },
-  // Hover effect doesn't work.
-  // '&:hover': {
-  //   backgroundColor: 'black',
-  //   opacity: 0.6,
-  //   cursor: 'pointer',
-  // },
 }))
 
 const PromoCardSlideshowArticleContent = styled('div', {
@@ -81,21 +73,20 @@ const PromoCardSlideshowArticleContent = styled('div', {
   ...theme.mixins.verticalRhythm(1),
   ...theme.mixins.absolute(0),
   display: 'flex',
+  justifyContent: 'center',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
   padding: theme.spacing(2, 0),
   textAlign: 'center',
   color: theme.palette.common.white,
-  // h2: {
-  //   textTransform: 'uppercase',
-  // },
-  // h3: {
-  //   textDecoration: 'underline',
-  //   textUnderlineOffset: '0.2em',
-  //   fontWeight: '400',
-  //   fontSize: '28px',
-  // },
+  span: {
+    fontWeight: '600',
+    letterSpacing: '1px',
+  },
+  h2: {
+    textDecoration: 'underline',
+    textUnderlineOffset: 2,
+  },
 }))
 
 function PromoCardSlideshow(props) {
@@ -120,11 +111,11 @@ function PromoCardSlideshow(props) {
                 )}
 
                 <PromoCardSlideshowArticleContent>
-                  <Typography component="h2" variant="h6">
+                  <Typography component="span" variant="button">
                     {item.subheading}
                   </Typography>
 
-                  <Typography component="h3" variant="h3">
+                  <Typography component="h2" variant="h5">
                     {item.heading}
                   </Typography>
                 </PromoCardSlideshowArticleContent>
