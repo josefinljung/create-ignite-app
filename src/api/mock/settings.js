@@ -1,24 +1,26 @@
-const subLinks = Array.from(new Array(12), (_, idx) => ({
+const subLinks = Array.from(new Array(8), (_, idx) => ({
   label: `Link ${idx + 1}`,
   url: `/link-${idx + 1}`,
 }))
-
-export const menuPrimary = [
-  {
-    label: 'Brands',
-    url: '/brands',
-  },
-  {
-    label: 'New arrivals',
-    url: '/new-arrivals',
-  },
-]
-
 export const menuSecondary = [
   {
-    label: 'Clothing',
+    label: 'Womens',
+    url: '/women',
+  },
+  {
+    label: 'Mens',
     links: subLinks,
-    url: '/clothing',
+    url: '/men',
+  },
+  {
+    label: 'Young Riders',
+    links: subLinks,
+    url: '/shoes',
+  },
+  {
+    label: 'Horses',
+    links: subLinks,
+    url: '/horses',
   },
   {
     label: 'Accessories',
@@ -26,19 +28,8 @@ export const menuSecondary = [
     url: '/accessories',
   },
   {
-    label: 'Shoes',
-    links: subLinks,
-    url: '/shoes',
-  },
-  {
-    label: 'Homewear',
-    links: subLinks,
-    url: '/homewear',
-  },
-  {
-    label: 'Skincare',
-    links: subLinks,
-    url: '/skincare',
+    label: 'Christmas gift',
+    url: '/christmas-gift',
   },
 ]
 
@@ -63,7 +54,6 @@ export const menuFooter = [
 
 export default {
   menus: {
-    primary: menuPrimary,
     secondary: menuSecondary,
     footer: menuFooter,
   },
