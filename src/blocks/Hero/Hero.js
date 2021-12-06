@@ -103,7 +103,7 @@ function Hero(props) {
         <HeroMediaReveal>
           <Media
             {...(backgroundMediaProps?.component === 'video'
-              ? { autoPlay: true, muted: true, loop: true, playsInline: true }
+              ? { autoPlay: false, muted: true, loop: true, playsInline: true }
               : {})}
             {...backgroundMediaProps}
             priority={renderIndex === 0}
